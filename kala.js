@@ -4,12 +4,12 @@ let greyfish = 0;
 let market = 1.5;
 let marketprice = 200;
 let marketamount = 0;
-let pricemultiplier = 1.8;
+let pricemultiplier = 1.6;
 let fishermanprice = 10;
-let boatprice = 1000;
-let beachprice = 100000;
-let bottleprice = 1000000;
-let taxiprice = 10000000;
+let boatprice = 800;
+let beachprice = 10000;
+let bottleprice = 100000;
+let taxiprice = 1000000;
 
 
 function roundToTwoDecimalPlaces(num) {
