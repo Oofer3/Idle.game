@@ -49,8 +49,8 @@ function buyMarket() {
         console.log("Sa arendasid enda turgu:", marketamount)
         let marketDisplay = document.querySelector("#market");
         marketDisplay.textContent = market;
-    } else { alert("sul on vaja " + marketprice + " münti");}
-    
+    } else { alert("sul on vaja " + marketprice + " münti"); }
+
 }
 
 let fishermans = 0
@@ -60,7 +60,7 @@ function buyFisherman() {
         money -= fishermanprice
         fishermanprice = fishermanprice * pricemultiplier
         console.log("Sa ostsid kalamehe:", fishermans)
-    } else { alert("sul on vaja " + fishermanprice + " münti");}
+    } else { alert("sul on vaja " + fishermanprice + " münti"); }
 }
 
 let boats = 0
@@ -71,8 +71,8 @@ function buyBoat() {
         boatprice = boatprice * pricemultiplier
         clearInterval(a)
         a = setInterval(fishing, Math.max(10, 100 / boats))
-    } else { alert("sul on vaja " + boatprice + " münti");}
-    
+    } else { alert("sul on vaja " + boatprice + " münti"); }
+
 }
 
 let beach = 0
@@ -82,8 +82,8 @@ function buybeach() {
         money -= beachprice
         beachprice = beachprice * pricemultiplier
         console.log("Ostsid ühe ranna:", beach)
-    } else { alert("sul on vaja " + beachprice + " münti");}
-    
+    } else { alert("sul on vaja " + beachprice + " münti"); }
+
 }
 
 fishing1 = () => {
@@ -104,7 +104,7 @@ function buyBottle() {
         bottleprice = bottleprice * pricemultiplier;
         clearInterval(b);
         b = setInterval(fishing1, Math.max(10, 100 / bottle));
-    } else { alert("sul on vaja " +bottleprice+ " münti");}
+    } else { alert("sul on vaja " + bottleprice + " münti"); }
 }
 
 taxi = 0;
@@ -150,85 +150,61 @@ function orderTaxi() {
 }
 
 function updateDisplay() {
-    let moneyDisplay = document.querySelector("#money");
-    if (moneyDisplay) {
-        moneyDisplay.textContent = roundToTwoDecimalPlaces(money);
-    }
+    const elements = {
+        money: roundToTwoDecimalPlaces(money),
+        fish: roundToTwoDecimalPlaces(fish),
+        market: roundToTwoDecimalPlaces(market),
+        fishermans: roundToTwoDecimalPlaces(fishermans),
+        boats: roundToTwoDecimalPlaces(boats),
+        beach: roundToTwoDecimalPlaces(beach),
+        greyfish: roundToTwoDecimalPlaces(greyfish),
+        bottle: roundToTwoDecimalPlaces(bottle),
+        taxi: roundToTwoDecimalPlaces(taxi),
+        marketprice: roundToTwoDecimalPlaces(marketprice),
+        fishermanprice: roundToTwoDecimalPlaces(fishermanprice),
+        boatprice: roundToTwoDecimalPlaces(boatprice),
+        beachprice: roundToTwoDecimalPlaces(beachprice),
+        bottleprice: roundToTwoDecimalPlaces(bottleprice),
+        taxiprice: roundToTwoDecimalPlaces(taxiprice),
+        marketamount: roundToTwoDecimalPlaces(marketamount)
+    };
 
-    let fishDisplay = document.querySelector("#fish");
-    if (fishDisplay) {
-        fishDisplay.textContent = roundToTwoDecimalPlaces(fish);
-    }
-
-    let marketDisplay = document.querySelector("#market");
-    if (marketDisplay) {
-        marketDisplay.textContent = roundToTwoDecimalPlaces(market);
-    }
-
-    let fishermansDisplay = document.querySelector("#fishermans");
-    if (fishermansDisplay) {
-        fishermansDisplay.textContent = roundToTwoDecimalPlaces(fishermans);
-    }
-
-    let boatsDisplay = document.querySelector("#boats");
-    if (boatsDisplay) {
-        boatsDisplay.textContent = roundToTwoDecimalPlaces(boats);
-    }
-
-    let beachDisplay = document.querySelector("#beach");
-    if (beachDisplay) {
-        beachDisplay.textContent = roundToTwoDecimalPlaces(beach);
-    }
-
-    let greyfishDisplay = document.querySelector("#greyfish");
-    if (greyfishDisplay) {
-        greyfishDisplay.textContent = roundToTwoDecimalPlaces(greyfish);
-    }
-
-    let bottleDisplay = document.querySelector("#bottle");
-    if (bottleDisplay) {
-        bottleDisplay.textContent = roundToTwoDecimalPlaces(bottle);
-    }
-
-    let taxiDisplay = document.querySelector("#taxi");
-    if (taxiDisplay) {
-        taxiDisplay.textContent = roundToTwoDecimalPlaces(taxi);
-    }
-
-    let marketpriceDisplay = document.querySelector("#marketprice");
-    if (marketpriceDisplay) {
-        marketpriceDisplay.textContent = roundToTwoDecimalPlaces(marketprice);
-    }
-
-    let fishermanpriceDisplay = document.querySelector("#fishermanprice");
-    if (fishermanpriceDisplay) {
-        fishermanpriceDisplay.textContent = roundToTwoDecimalPlaces(fishermanprice);
-    }
-
-    let boatpriceDisplay = document.querySelector("#boatprice");
-    if (boatpriceDisplay) {
-        boatpriceDisplay.textContent = roundToTwoDecimalPlaces(boatprice);
-    }
-
-    let beachpriceDisplay = document.querySelector("#beachprice");
-    if (beachpriceDisplay) {
-        beachpriceDisplay.textContent = roundToTwoDecimalPlaces(beachprice);
-    }
-
-    let bottlepriceDisplay = document.querySelector("#bottleprice");
-    if (bottlepriceDisplay) {
-        bottlepriceDisplay.textContent = roundToTwoDecimalPlaces(bottleprice);
-    }
-
-    let taxipriceDisplay = document.querySelector("#taxiprice");
-    if (taxipriceDisplay) {
-        taxipriceDisplay.textContent = roundToTwoDecimalPlaces(taxiprice);
-    }
-
-    let marketamountDisplay = document.querySelector("#marketamount");
-    if (marketamountDisplay) {
-        marketamountDisplay.textContent = roundToTwoDecimalPlaces(marketamount);
-    }
+    Object.entries(elements).forEach(([key, value]) => {
+        const display = document.querySelector(`#${key}`);
+        if (display) {
+            display.textContent = value;
+        }
+    });
 }
 
 setInterval(updateDisplay, 10);
+
+/*
+class Sound {
+    constructor(src) {
+        this.sound = document.createElement("audio");
+        this.sound.src = src;
+        this.sound.setAttribute("preload", "auto");
+        this.sound.setAttribute("controls", "none");
+        this.sound.style.display = "none";
+        document.body.appendChild(this.sound);
+    }
+
+    play() {
+        this.sound.play();
+    }
+
+    stop() {
+        this.sound.pause();
+    }
+}
+
+var myMusic;
+
+function music() {
+    myMusic = new Sound("Zen_Idle.mp3");
+    myMusic.play();
+}
+
+music();
+*/
