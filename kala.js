@@ -11,7 +11,6 @@ let beachprice = 10000;
 let bottleprice = 100000;
 let taxiprice = 1000000;
 
-
 function roundToTwoDecimalPlaces(num) {
     return Math.round(num * 100) / 100;
 }
@@ -74,6 +73,15 @@ function buyBoat() {
     } else { alert("sul on vaja " + boatprice + " münti"); }
 
 }
+
+
+function catchFish() {
+    fish++;
+    fishDisplay.textContent = fish;
+    
+    
+}
+
 
 let beach = 0
 function buybeach() {
