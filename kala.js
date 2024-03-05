@@ -60,10 +60,6 @@ function buyFisherman() {
         money -= fishermanprice
         fishermanprice = fishermanprice * pricemultiplier
         console.log("Sa ostsid kalamehe:", fishermans)
-        clearInterval(a)
-        a = setInterval(fishing, Math.max(10, 100 / fishermans))
-        let moneyDisplay = document.querySelector("#money");
-        moneyDisplay.textContent = money;
     } else { alert("sul on vaja " + fishermanprice + " münti");}
 }
 
