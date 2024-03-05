@@ -106,13 +106,13 @@ function buyBottle() {
         b = setInterval(fishing1, Math.max(10, 100 / bottle));
     } else { alert("sul on vaja " + bottleprice + " münti"); }
 }
+let taxi = 0;
 
-taxi = 0;
 function orderTaxi() {
     if (money >= taxiprice) {
         taxi++;
         money -= taxiprice;
-        taxiprice = taxiprice * pricemultiplier;
+        taxiprice *= pricemultiplier;
 
         switch (taxi) {
             case 1:
