@@ -16,15 +16,6 @@ function roundToTwoDecimalPlaces(num) {
     return Math.round(num * 100) / 100;
 }
 
-marketprice = roundToTwoDecimalPlaces(marketprice);
-fish = roundToTwoDecimalPlaces(fish);
-greyfish = roundToTwoDecimalPlaces(greyfish);
-fishermanprice = roundToTwoDecimalPlaces(fishermanprice);
-boatprice = roundToTwoDecimalPlaces(boatprice);
-beachprice = roundToTwoDecimalPlaces(beachprice);
-bottleprice = roundToTwoDecimalPlaces(bottleprice);
-taxiprice = roundToTwoDecimalPlaces(taxiprice);
-
 function toggleDarkMode() {
     document.body.classList.toggle("dark-mode");
 }
@@ -47,7 +38,6 @@ function sellFish() {
     fish = 0;
     greyfish = 0;
     fishDisplay.textContent = fish;
-    console.log("money:", money)
 }
 
 function buyMarket() {
@@ -59,7 +49,8 @@ function buyMarket() {
         console.log("Sa arendasid enda turgu:", marketamount)
         let marketDisplay = document.querySelector("#market");
         marketDisplay.textContent = market;
-    } else console.log("sul on vaja " + marketprice + " raha")
+    } else { alert("sul on vaja " + marketprice + " münti");}
+    
 }
 
 let fishermans = 0
@@ -73,7 +64,7 @@ function buyFisherman() {
         a = setInterval(fishing, Math.max(10, 100 / fishermans))
         let moneyDisplay = document.querySelector("#money");
         moneyDisplay.textContent = money;
-    } else console.log("sul on vaja 10 raha")
+    } else { alert("sul on vaja " + fishermanprice + " münti");}
 }
 
 let boats = 0
@@ -84,7 +75,8 @@ function buyBoat() {
         boatprice = boatprice * pricemultiplier
         clearInterval(a)
         a = setInterval(fishing, Math.max(10, 100 / boats))
-    } else console.log("sul on vaja 1000 raha")
+    } else { alert("sul on vaja " + boatprice + " münti");}
+    
 }
 
 let beach = 0
@@ -94,7 +86,8 @@ function buybeach() {
         money -= beachprice
         beachprice = beachprice * pricemultiplier
         console.log("Ostsid ühe ranna:", beach)
-    } else console.log("sul on vaja 100000 raha")
+    } else { alert("sul on vaja " + beachprice + " münti");}
+    
 }
 
 fishing1 = () => {
@@ -115,10 +108,7 @@ function buyBottle() {
         bottleprice = bottleprice * pricemultiplier;
         clearInterval(b);
         b = setInterval(fishing1, Math.max(10, 100 / bottle));
-    } else {
-        console.log("sul on vaja 1000000 raha");
-    }
-    updateDisplay();
+    } else { alert("sul on vaja " +bottleprice+ " münti");}
 }
 
 taxi = 0;
@@ -186,62 +176,62 @@ function updateDisplay() {
 
     let boatsDisplay = document.querySelector("#boats");
     if (boatsDisplay) {
-        boatsDisplay.textContent = boats;
+        boatsDisplay.textContent = roundToTwoDecimalPlaces(boats);
     }
 
     let beachDisplay = document.querySelector("#beach");
     if (beachDisplay) {
-        beachDisplay.textContent = beach;
+        beachDisplay.textContent = roundToTwoDecimalPlaces(beach);
     }
 
     let greyfishDisplay = document.querySelector("#greyfish");
     if (greyfishDisplay) {
-        greyfishDisplay.textContent = greyfish;
+        greyfishDisplay.textContent = roundToTwoDecimalPlaces(greyfish);
     }
 
     let bottleDisplay = document.querySelector("#bottle");
     if (bottleDisplay) {
-        bottleDisplay.textContent = bottle;
+        bottleDisplay.textContent = roundToTwoDecimalPlaces(bottle);
     }
 
     let taxiDisplay = document.querySelector("#taxi");
     if (taxiDisplay) {
-        taxiDisplay.textContent = taxi;
+        taxiDisplay.textContent = roundToTwoDecimalPlaces(taxi);
     }
 
     let marketpriceDisplay = document.querySelector("#marketprice");
     if (marketpriceDisplay) {
-        marketpriceDisplay.textContent = marketprice;
+        marketpriceDisplay.textContent = roundToTwoDecimalPlaces(marketprice);
     }
 
     let fishermanpriceDisplay = document.querySelector("#fishermanprice");
     if (fishermanpriceDisplay) {
-        fishermanpriceDisplay.textContent = fishermanprice;
+        fishermanpriceDisplay.textContent = roundToTwoDecimalPlaces(fishermanprice);
     }
 
     let boatpriceDisplay = document.querySelector("#boatprice");
     if (boatpriceDisplay) {
-        boatpriceDisplay.textContent = boatprice;
+        boatpriceDisplay.textContent = roundToTwoDecimalPlaces(boatprice);
     }
 
     let beachpriceDisplay = document.querySelector("#beachprice");
     if (beachpriceDisplay) {
-        beachpriceDisplay.textContent = beachprice;
+        beachpriceDisplay.textContent = roundToTwoDecimalPlaces(beachprice);
     }
 
     let bottlepriceDisplay = document.querySelector("#bottleprice");
     if (bottlepriceDisplay) {
-        bottlepriceDisplay.textContent = bottleprice;
+        bottlepriceDisplay.textContent = roundToTwoDecimalPlaces(bottleprice);
     }
 
     let taxipriceDisplay = document.querySelector("#taxiprice");
     if (taxipriceDisplay) {
-        taxipriceDisplay.textContent = taxiprice;
+        taxipriceDisplay.textContent = roundToTwoDecimalPlaces(taxiprice);
     }
 
     let marketamountDisplay = document.querySelector("#marketamount");
     if (marketamountDisplay) {
-        marketamountDisplay.textContent = marketamount;
+        marketamountDisplay.textContent = roundToTwoDecimalPlaces(marketamount);
     }
 }
 
