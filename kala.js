@@ -201,32 +201,7 @@ function updateDisplay() {
 
 setInterval(updateDisplay, 10);
 
-/*
-class Sound {
-    constructor(src) {
-        this.sound = document.createElement("audio");
-        this.sound.src = src;
-        this.sound.setAttribute("preload", "auto");
-        this.sound.setAttribute("controls", "none");
-        this.sound.style.display = "none";
-        document.body.appendChild(this.sound);
-    }
-
-    play() {
-        this.sound.play();
-    }
-
-    stop() {
-        this.sound.pause();
-    }
-}
-
-var myMusic;
-
-function music() {
-    myMusic = new Sound("Zen_Idle.mp3");
-    myMusic.play();
-}
-
-music();
-*/
+let music = new Audio("Zen_Idle.mp3");
+music.loop = true;
+music.volume = 0.1;
+music.play();
