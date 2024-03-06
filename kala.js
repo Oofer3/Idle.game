@@ -2,14 +2,14 @@ let money = 0;
 let fish = 0;
 let greyfish = 0;
 let market = 1.5;
-let marketprice = 200;
+let marketprice = 222
 let marketamount = 0;
-let pricemultiplier = 1.6;
+let pricemultiplier = 1.3;
 let fishermanprice = 10;
 let boatprice = 800;
-let beachprice = 10000;
-let bottleprice = 100000;
-let taxiprice = 1000000;
+let beachprice = 9998;
+let bottleprice = 92340;
+let taxiprice = 762034;
 
 function roundToTwoDecimalPlaces(num) {
     return Math.round(num * 100) / 100;
@@ -52,26 +52,33 @@ function buyMarket() {
 
 }
 
-let fishermans = 0
+let fishermans = 0;
 function buyFisherman() {
-    if (money >= fishermanprice) {
-        fishermans++
-        money -= fishermanprice
-        fishermanprice = fishermanprice * pricemultiplier
-        console.log("Sa ostsid kalamehe:", fishermans)
-    } else { alert("sul on vaja " + fishermanprice + " münti"); }
+    if (money >= fishermanprice && fishermans < 100) {
+        fishermans++;
+        money -= fishermanprice;
+        fishermanprice = fishermanprice * pricemultiplier;
+        console.log("Sa ostsid kalamehe:", fishermans);
+    } else if (fishermans >= 100) {
+        alert("You can only buy a maximum of 100 fishermen.");
+    } else {
+        alert("You need " + fishermanprice + " coins.");
+    }
 }
 
-let boats = 0
+let boats = 0;
 function buyBoat() {
-    if (money >= boatprice) {
-        boats++
-        money -= boatprice
-        boatprice = boatprice * pricemultiplier
-        clearInterval(a)
-        a = setInterval(fishing, Math.max(10, 100 / boats))
-    } else { alert("sul on vaja " + boatprice + " münti"); }
-
+    if (money >= boatprice && boats < 10) {
+        boats++;
+        money -= boatprice;
+        boatprice = boatprice * pricemultiplier;
+        clearInterval(a);
+        a = setInterval(fishing, Math.max(10, 100 / boats));
+    } else if (boats >= 10) {
+        alert("You can only buy a maximum of 10 boats.");
+    } else {
+        alert("You need " + boatprice + " coins.");
+    }
 }
 
 
@@ -83,15 +90,18 @@ function catchFish() {
 }
 
 
-let beach = 0
+let beach = 0;
 function buybeach() {
-    if (money >= beachprice) {
-        beach++
-        money -= beachprice
-        beachprice = beachprice * pricemultiplier
-        console.log("Ostsid ühe ranna:", beach)
-    } else { alert("sul on vaja " + beachprice + " münti"); }
-
+    if (money >= beachprice && beach < 100) {
+        beach++;
+        money -= beachprice;
+        beachprice = beachprice * pricemultiplier;
+        console.log("Ostsid ühe ranna:", beach);
+    } else if (beach >= 100) {
+        alert("You can only buy a maximum of 100 beaches.");
+    } else {
+        alert("You need " + beachprice + " coins.");
+    }
 }
 
 fishing1 = () => {
@@ -106,13 +116,17 @@ b = setInterval(fishing1, 100)
 
 let bottle = 0;
 function buyBottle() {
-    if (money >= bottleprice) {
+    if (money >= bottleprice && bottle < 10) {
         bottle++;
         money -= bottleprice;
         bottleprice = bottleprice * pricemultiplier;
         clearInterval(b);
         b = setInterval(fishing1, Math.max(10, 100 / bottle));
-    } else { alert("sul on vaja " + bottleprice + " münti"); }
+    } else if (bottle >= 10) {
+        alert("You can only buy a maximum of 10 bottles.");
+    } else {
+        alert("You need " + bottleprice + " coins.");
+    }
 }
 let taxi = 0;
 
