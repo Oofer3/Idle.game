@@ -55,6 +55,7 @@ button:hover {
     background-color: #5D4037;
 }
 
+
 body.dark-mode {
     color: #ffffff;
     background-color: #333333;
@@ -80,4 +81,3 @@ body.dark-mode button {
 body.dark-mode button:hover {
     background-color: #455A64;
 }
-

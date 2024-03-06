@@ -6,12 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fishing Game</title>
     <link rel="stylesheet" href="style.css">
-<body>
+</head>
+
+    <body>
     <header>
         <h1>Fishing Game</h1>
         <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
     </header>
-    <main>
+        <main>
         <div class="card" id="fish-card">
             <h2>Fish Count: <span id="fish-count">0</span></h2> <h2>Money: <span id="money">0</span></h2>
             <h2>Grey Fish Count: <span id="greyfish">0</span></h2>
@@ -48,11 +50,17 @@
             <h2>Price: <span id="taxiprice">10000000</span></h2>
             <button onclick="orderTaxi()">Order Taxi</button>
         </div>
-    </main>
-    <footer>
-        <p>Idle Fishing Game 2024
-            <br> Created by Jaan Laskar
-        </p>
-    </footer>
-    <script src="kala.js"></script>
-</body>
+        </main>
+        <footer>
+            <p>Idle Fishing Game 2024
+                <br> Created by Jaan Laskar
+            </p>
+        </footer>
+        <script src="kala.js"></script>
+        <script>
+        function toggleDarkMode() {
+              document.body.classList.toggle("dark-mode");
+            }
+        </script>
+    </body>
+</html>
