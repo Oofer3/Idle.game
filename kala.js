@@ -33,7 +33,7 @@ fishing = () => {
 }
 a = setInterval(fishing, 100)
 function sellFish() {
-    money += (fish * market) + (greyfish * market * 3)
+    money += (fish * market) + (greyfish * market * 12)
     fish = 0;
     greyfish = 0;
     fishDisplay.textContent = fish;
@@ -85,8 +85,6 @@ function buyBoat() {
 function catchFish() {
     fish++;
     fishDisplay.textContent = fish;
-    
-    
 }
 
 
@@ -138,37 +136,37 @@ function orderTaxi() {
 
         switch (taxi) {
             case 1:
-                console.log("congrats, saad nüüd koju minna");
-                break;
+            alert("congrats, saad nüüd koju minna");
+            break;
             case 2:
-                console.log("congrats, ma saan ka nüüd koju minna");
-                break;
+            alert("congrats, ma saan ka nüüd koju minna");
+            break;
             case 3:
-                console.log("congrats, karu saab ka nüüd koju minna");
-                break;
+            alert("congrats, karu saab ka nüüd koju minna");
+            break;
             case 4:
-                console.log("congrats, taksojuht saab nüüd puhkusele minna");
-                break;
+            alert("congrats, taksojuht saab nüüd puhkusele minna");
+            break;
             case 7:
-                console.log("congrats, taksojuht ostsis Pariisi korteri");
-                break;
+            alert("congrats, taksojuht ostsis Pariisi korteri");
+            break;
             case 11:
-                console.log("congrats, taksojuht on reisinud juba kaheksasse eri riiki");
-                break;
+            alert("congrats, taksojuht on reisinud juba kaheksasse eri riiki");
+            break;
             case 16:
-                console.log("congrats, taksojuht lämbus rahahunniku alla ära, puhaku ta rahus");
-                break;
+            alert("congrats, taksojuht lämbus rahahunniku alla ära, puhaku ta rahus");
+            break;
             case 19:
-                console.log("keep going you are close ");
-                break;
+            alert("keep going you are close ");
+            break;
             default:
-                console.log("congrats, taksojuht saab nüüd kauem puhkusel olla");
-                break;
+            alert("congrats, taksojuht saab nüüd kauem puhkusel olla");
+            break;
         }
-    } else {
-        console.log("sul on vaja " + taxiprice + " raha");
-    }
-    updateDisplay();
+        } else {
+        alert("sul on vaja " + taxiprice + " raha");
+        }
+        updateDisplay();
 }
 
 function updateDisplay() {
@@ -198,7 +196,6 @@ function updateDisplay() {
         }
     });
 }
-
 setInterval(updateDisplay, 10);
 
 let music = new Audio("Zen_Idle.mp3");
