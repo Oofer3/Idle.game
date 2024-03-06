@@ -127,36 +127,34 @@ function orderTaxi() {
 
         switch (taxi) {
             case 1:
-                alert("congrats, saad nüüd koju minna");
+                alert("Congrats, saad nüüd koju minna");
                 break;
             case 2:
-                alert("congrats, ma saan ka nüüd koju minna");
+                alert("Congrats, ma saan ka nüüd koju minna");
                 break;
             case 3:
-                alert("congrats, karu saab ka nüüd koju minna");
+                alert("Congrats, karu saab ka nüüd koju minna");
                 break;
             case 4:
-                alert("congrats, taksojuht saab nüüd puhkusele minna");
+                alert("Congrats, taksojuht saab nüüd puhkusele minna");
                 break;
             case 7:
-                alert("congrats, taksojuht ostsis Pariisi korteri");
+                alert("Congrats, taksojuht ostsis Pariisi korteri");
                 break;
             case 11:
-                alert("congrats, taksojuht on reisinud juba kaheksasse eri riiki");
+                alert("Congrats, taksojuht on reisinud juba kaheksasse eri riiki");
                 break;
             case 16:
-                alert("congrats, taksojuht lämbus rahahunniku alla ära, puhaku ta rahus");
+                alert("Congrats, taksojuht lämbus rahahunniku alla ära, puhaku ta rahus");
                 break;
             case 19:
-                alert("keep going you are close ");
+                alert("Keep going you are close ");
                 break;
             default:
-                alert("congrats, taksojuht saab nüüd kauem puhkusel olla");
+                alert("Congrats, taksojuht saab nüüd kauem puhkusel olla");
                 break;
         }
-    } else {
-        alert("sul on vaja " + taxiprice + " raha");
-    }
+    } else {alert("sul on vaja " + taxiprice + " raha");}
     updateDisplay();
 }
 
