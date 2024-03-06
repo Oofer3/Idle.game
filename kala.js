@@ -1,15 +1,6 @@
 let money = 0;
 let fish = 0;
-let greyfish = 0;
-let market = 1.5;
-let marketprice = 222
-let marketamount = 0;
 let pricemultiplier = 1.3;
-let fishermanprice = 10;
-let boatprice = 800;
-let beachprice = 9998;
-let bottleprice = 92340;
-let taxiprice = 762034;
 
 function roundToTwoDecimalPlaces(num) {
     return Math.round(num * 100) / 100;
@@ -38,7 +29,9 @@ function sellFish() {
     greyfish = 0;
     fishDisplay.textContent = fish;
 }
-
+let marketprice = 222
+let market = 1.5;
+let marketamount = 0;
 function buyMarket() {
     if (money >= marketprice) {
         marketamount++
@@ -51,7 +44,7 @@ function buyMarket() {
     } else { alert("sul on vaja " + marketprice + " münti"); }
 
 }
-
+let fishermanprice = 10;
 let fishermans = 0;
 function buyFisherman() {
     if (money >= fishermanprice && fishermans < 100) {
@@ -65,7 +58,7 @@ function buyFisherman() {
         alert("You need " + fishermanprice + " coins.");
     }
 }
-
+let boatprice = 800;
 let boats = 0;
 function buyBoat() {
     if (money >= boatprice && boats < 10) {
@@ -81,14 +74,13 @@ function buyBoat() {
     }
 }
 
-
 function catchFish() {
     fish++;
     fishDisplay.textContent = fish;
 }
-
-
+let greyfish = 0;
 let beach = 0;
+let beachprice = 9998;
 function buybeach() {
     if (money >= beachprice && beach < 100) {
         beach++;
@@ -107,11 +99,10 @@ fishing1 = () => {
         greyfish++
         console.log("leidsin hõbedase kala")
     }
-
 }
 
 b = setInterval(fishing1, 100)
-
+let bottleprice = 92340;
 let bottle = 0;
 function buyBottle() {
     if (money >= bottleprice && bottle < 10) {
@@ -127,7 +118,7 @@ function buyBottle() {
     }
 }
 let taxi = 0;
-
+let taxiprice = 762034;
 function orderTaxi() {
     if (money >= taxiprice) {
         taxi++;
@@ -136,37 +127,37 @@ function orderTaxi() {
 
         switch (taxi) {
             case 1:
-            alert("congrats, saad nüüd koju minna");
-            break;
+                alert("congrats, saad nüüd koju minna");
+                break;
             case 2:
-            alert("congrats, ma saan ka nüüd koju minna");
-            break;
+                alert("congrats, ma saan ka nüüd koju minna");
+                break;
             case 3:
-            alert("congrats, karu saab ka nüüd koju minna");
-            break;
+                alert("congrats, karu saab ka nüüd koju minna");
+                break;
             case 4:
-            alert("congrats, taksojuht saab nüüd puhkusele minna");
-            break;
+                alert("congrats, taksojuht saab nüüd puhkusele minna");
+                break;
             case 7:
-            alert("congrats, taksojuht ostsis Pariisi korteri");
-            break;
+                alert("congrats, taksojuht ostsis Pariisi korteri");
+                break;
             case 11:
-            alert("congrats, taksojuht on reisinud juba kaheksasse eri riiki");
-            break;
+                alert("congrats, taksojuht on reisinud juba kaheksasse eri riiki");
+                break;
             case 16:
-            alert("congrats, taksojuht lämbus rahahunniku alla ära, puhaku ta rahus");
-            break;
+                alert("congrats, taksojuht lämbus rahahunniku alla ära, puhaku ta rahus");
+                break;
             case 19:
-            alert("keep going you are close ");
-            break;
+                alert("keep going you are close ");
+                break;
             default:
-            alert("congrats, taksojuht saab nüüd kauem puhkusel olla");
-            break;
+                alert("congrats, taksojuht saab nüüd kauem puhkusel olla");
+                break;
         }
-        } else {
+    } else {
         alert("sul on vaja " + taxiprice + " raha");
-        }
-        updateDisplay();
+    }
+    updateDisplay();
 }
 
 function updateDisplay() {
