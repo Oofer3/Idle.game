@@ -249,13 +249,26 @@ loadButton.addEventListener("click", () => {
         taxiprice = saveData.taxiprice;
         marketamount = saveData.marketamount;
     }
-}
-);
+});
 
-let resetButton = document.querySelector("#reset-button");
-
-resetButton.addEventListener("click", () => {
-    localStorage.removeItem("saveData");
-    location.reload();
-}
-);
+let autoSaveInterval = setInterval(() => {
+    const saveData = {
+        money,
+        fish,
+        market,
+        fishermans,
+        boats,
+        beach,
+        greyfish,
+        bottle,
+        taxi,
+        marketprice,
+        fishermanprice,
+        boatprice,
+        beachprice,
+        bottleprice,
+        taxiprice,
+        marketamount
+    };
+    localStorage.setItem("saveData", JSON.stringify(saveData));
+}, 60000); // Save every minute
