@@ -191,3 +191,71 @@ let music = new Audio("Zen_Idle.mp3");
 music.loop = true;
 music.volume = 0.1;
 music.play();
+
+let musicButton = document.querySelector("#music-button");
+musicButton.addEventListener("click", () => {
+    if (music.paused) {
+        music.play();
+    } else {
+        music.pause();
+    }
+});
+let muteButton = document.querySelector("#mute-button");
+muteButton.addEventListener("click", () => {
+    music.muted = !music.muted;
+});
+let saveButton = document.querySelector("#save-button");
+saveButton.addEventListener("click", () => {
+    const saveData = {
+        money,
+        fish,
+        market,
+        fishermans,
+        boats,
+        beach,
+        greyfish,
+        bottle,
+        taxi,
+        marketprice,
+        fishermanprice,
+        boatprice,
+        beachprice,
+        bottleprice,
+        taxiprice,
+        marketamount
+    };
+    localStorage.setItem("saveData", JSON.stringify(saveData));
+});
+
+let loadButton = document.querySelector("#load-button");
+
+loadButton.addEventListener("click", () => {
+    const saveData = JSON.parse(localStorage.getItem("saveData"));
+    if (saveData) {
+        money = saveData.money;
+        fish = saveData.fish;
+        market = saveData.market;
+        fishermans = saveData.fishermans;
+        boats = saveData.boats;
+        beach = saveData.beach;
+        greyfish = saveData.greyfish;
+        bottle = saveData.bottle;
+        taxi = saveData.taxi;
+        marketprice = saveData.marketprice;
+        fishermanprice = saveData.fishermanprice;
+        boatprice = saveData.boatprice;
+        beachprice = saveData.beachprice;
+        bottleprice = saveData.bottleprice;
+        taxiprice = saveData.taxiprice;
+        marketamount = saveData.marketamount;
+    }
+}
+);
+
+let resetButton = document.querySelector("#reset-button");
+
+resetButton.addEventListener("click", () => {
+    localStorage.removeItem("saveData");
+    location.reload();
+}
+);
