@@ -6,12 +6,6 @@ function roundToTwoDecimalPlaces(num) {
     return Math.round(num * 100) / 100;
 }
 
-function toggleDarkMode() {
-    document.body.classList.toggle("dark-mode");
-}
-
-let darkModeButton = document.querySelector("#dark-mode-button");
-
 let fishDisplay = document.querySelector("#fish-count");
 
 fishing = () => {
@@ -154,7 +148,7 @@ function orderTaxi() {
                 alert("Congrats, taksojuht saab nüüd kauem puhkusel olla");
                 break;
         }
-    } else {alert("sul on vaja " + taxiprice + " raha");}
+    } else { alert("sul on vaja " + taxiprice + " raha"); }
     updateDisplay();
 }
 
@@ -192,18 +186,7 @@ music.loop = true;
 music.volume = 0.1;
 music.play();
 
-let musicButton = document.querySelector("#music-button");
-musicButton.addEventListener("click", () => {
-    if (music.paused) {
-        music.play();
-    } else {
-        music.pause();
-    }
-});
-let muteButton = document.querySelector("#mute-button");
-muteButton.addEventListener("click", () => {
-    music.muted = !music.muted;
-});
+/*
 let saveButton = document.querySelector("#save-button");
 saveButton.addEventListener("click", () => {
     const saveData = {
@@ -271,4 +254,5 @@ let autoSaveInterval = setInterval(() => {
         marketamount
     };
     localStorage.setItem("saveData", JSON.stringify(saveData));
-}, 60000); // Save every minute
+}, 60000); // Save 1 min
+*/
