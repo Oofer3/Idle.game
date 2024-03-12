@@ -146,8 +146,8 @@ function buyBottle() {
         state.bottle++;
         state.money -= price;
         clearInterval(b);
-        b = setInterval(fishing1, Math.max(10, 100 / bottle));
-    } else if (bottle >= 10) {
+        b = setInterval(fishing1, Math.max(10, 100 / state.bottle));
+    } else if (state.bottle >= 10) {
         alert("You can only buy a maximum of 10 bottles.");
     } else {
         alert("You need " + price + " coins.");
