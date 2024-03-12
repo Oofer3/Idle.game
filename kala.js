@@ -35,6 +35,10 @@ let multipliers = {
     taxi: 0.3,
 }
 
+function calculatePrice(itemName) {
+    return prices[itemName] + prices[itemName] * multipliers[itemName] * state[itemName];
+}
+
 function roundToTwoDecimalPlaces(num) {
     return Math.round(num * 100) / 100;
 }
@@ -58,22 +62,24 @@ function sellFish() {
 
 function buyMarket() {
     // TODO näita kuidas need kaks rida teha funktsiooniks
-    let itemName = "market"
-    let price = prices[itemName] + prices[itemName] * multipliers[itemName] * state[itemName];
+    let itemName = "market";
+    let price = calculatePrice(itemName);
     if (state.money >= price) {
-        state.market++
-        state.market = state.market * 1.2
-        state.money -= price
-        console.log("Sa arendasid enda turgu:", state.market)
+        state.market++;
+        state.market = state.market * 1.2;
+        state.money -= price;
+        console.log("Sa arendasid enda turgu:", state.market);
         let marketDisplay = document.querySelector("#market");
         marketDisplay.textContent = state.market;
-    } else { alert("sul on vaja " + price + " münti"); }
+    } else {
+        alert("sul on vaja " + price + " münti");
+    }
 
 }
 
 function buyFisherman() {
     let itemName = "fisherman"
-    let price = prices[itemName] + prices[itemName] * multipliers[itemName] * state[itemName];
+    let price = calculatePrice(itemName);
     if (state.money >= price && state.fisherman < 100) {
         state.fisherman++;
         state.money -= price;
@@ -87,7 +93,7 @@ function buyFisherman() {
 
 function buyBoat() {
     let itemName = "boat"
-    let price = prices[itemName] + prices[itemName] * multipliers[itemName] * state[itemName];
+    let price = calculatePrice(itemName);
     if (state.money >= price && state.boat < 10) {
         state.boat++;
         state.money -= price;
@@ -107,7 +113,7 @@ function catchFish() {
 
 function buybeach() {
     let itemName = "beach"
-    let price = prices[itemName] + prices[itemName] * multipliers[itemName] * state[itemName];
+    let price = calculatePrice(itemName);
     if (state.money >= price && state.beach < 100) {
         state.beach++;
         state.money -= price;
@@ -129,7 +135,7 @@ fishing1 = () => {
 b = setInterval(fishing1, 100)
 function buyBottle() {
     let itemName = "bottle"
-    let price = prices[itemName] + prices[itemName] * multipliers[itemName] * state[itemName];
+    let price = calculatePrice(itemName);
     if (state.money >= price && state.bottle < 10) {
         state.bottle++;
         state.money -= price;
@@ -143,7 +149,7 @@ function buyBottle() {
 }
 function orderTaxi() {
     let itemName = "taxi"
-    let price = prices[itemName] + prices[itemName] * multipliers[itemName] * state[itemName];
+    let price = calculatePrice(itemName);
     if (state.money >= price) {
         state.taxi++;
         state.money -= price;
