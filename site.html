@@ -20,12 +20,14 @@
         <h1>Fishing Game</h1>
     </header>
     <main>
-        <div class="card" id="fish-card" style="background-color: transparent;">
-            <h2>Fish Count: <span id="state-fish">0</span> 🐟</h2>
-            <h2>Money: <span id="state-money">0</span> 💰</h2>
-            <h2>Grey Fish Count: <span id="state-greyfish">0</span> 🐡</h2>
-            <button onclick="sellFish()">Sell Fish 🎣</button>
-            <button onclick="catchFish()">Catch Fish 🐠</button>
+        <div id="sectionLeft" class="inset">
+            <div class="card" id="fish-card" style="background-color: transparent;">
+                <h2>Fish Count: <span id="state-fish">0</span> 🐟</h2>
+                <h2>Money: <span id="state-money">0</span> 💰</h2>
+                <h2>Grey Fish Count: <span id="state-greyfish">0</span> 🐡</h2>
+                <button onclick="sellFish()">Sell Fish 🎣</button>
+                <button onclick="catchFish()">Catch Fish 🐠</button>
+            </div>
         </div>
         <div id="sectionRight" class="inset">
             <div class="card" id="fisherman-card" style="background-color: transparent;">
@@ -57,12 +59,13 @@
                 <h2>Taxis: <span id="state-taxi">0</span></h2>
                 <h2>Price: <span id="price-taxi">10000000</span> 💰</h2>
                 <button onclick="orderTaxi()">Order Taxi 🚖</button>
-            </div>    
-                
+            </div>
+
         </div>
     </main>
-    <footer style="background-color: transparent;">
-        <p style="background-color: transparent; font-size: 18px; color: black;"><strong>Idle Fishing Game 2024<br> Created by Jaan Laskar</strong></p>
+    <footer>
+        <p style="background-color: transparent; font-size: 18px; color: black;"><strong>Idle Fishing Game 2024<br>
+                Created by Jaan Laskar</strong></p>
     </footer>
     <script src="kala.js"></script>
 </body>

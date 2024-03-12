@@ -4,8 +4,27 @@ body {
     padding: 0 20px;
 }
 
+.card {
+    margin-bottom: 10px;
+    width: 500px;
+    height: 200px;
+    box-shadow: none;
+    display: middle;
+}
+
+#sectionRight {
+    width: 30%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    background: transparent;
+}
+
 header {
-    background-color: #263238; /* Change to dark background color */
+    background-color: #263238;
     color: #ffffff;
     padding: 10px;
     text-align: center;
@@ -19,7 +38,7 @@ header {
 }
 
 .card {
-    background-color: #37474F; /* Change to dark background color */
+    background-color: #37474F;
     color: #ffffff;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -29,7 +48,7 @@ header {
 }
 
 footer {
-    background-color: #000000; /* Change to dark background color */
+    background-color: transparent;
     color: #ffffff;
     padding: 10px;
     text-align: center;
@@ -37,7 +56,7 @@ footer {
 }
 
 button {
-    background-color: #546E7A; /* Change to dark background color */
+    background-color: #546E7A;
     color: #ffffff;
     border: none;
     border-radius: 5px;
@@ -47,24 +66,5 @@ button {
 }
 
 button:hover {
-    background-color: #455A64; /* Change to dark background color */
-}
-
-.card {
-    margin-bottom: 10px;
-    width: 500px;
-    height: 200px;
-    box-shadow: none;
-    display: middle;
-}
-
-#sectionRight
-{
-	height:100%;
-	position:absolute;
-	top:0px;
-	right:0px;
-	overflow-x:hidden;
-	overflow-y:scroll;
-	background:transparent;
+    background-color: #455A64;
 }
