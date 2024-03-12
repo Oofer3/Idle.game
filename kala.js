@@ -10,8 +10,14 @@ let state = loadedState || {
     greyfish: 0,
     bottle: 0,
     taxi: 0,
+    rebirth: 0,
 }
 
+if (loadedState) {
+    console.log("Loaded game state from local storage", state);
+} else {
+    console.log("No game state in local storage, starting new game", state);
+}
 // Save game state to local storage every 5 seconds
 setInterval(() => {
     localStorage.setItem("state", JSON.stringify(state));
@@ -27,7 +33,7 @@ let prices = {
 }
 
 let multipliers = {
-    market: 0.2,
+    market: 1.1,
     fisherman: 0.3,
     boat: 0.3,
     beach: 0.3,
@@ -154,7 +160,7 @@ function orderTaxi() {
         state.taxi++;
         state.money -= price;
 
-        switch (taxi) {
+        switch (state.taxi) { // Fix: Added 'state.' before 'taxi'
             case 1: alert("Congrats, saad nüüd koju minna"); break;
             case 2: alert("Congrats, ma saan ka nüüd koju minna"); break;
             case 3: alert("Congrats, karu saab ka nüüd koju minna"); break;
@@ -163,6 +169,7 @@ function orderTaxi() {
             case 11: alert("Congrats, taksojuht on reisinud juba kaheksasse eri riiki"); break;
             case 16: alert("Congrats, taksojuht lämbus rahahunniku alla ära, puhaku ta rahus"); break;
             case 19: alert("Keep going you are close "); break;
+            case 2000: alert("TüRA SA SIIA MAANI SIIN TEED"); break;
             default: alert("Congrats, taksojuht saab nüüd kauem puhkusel olla"); break;
         }
     } else { alert("sul on vaja " + price + " raha"); }
