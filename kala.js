@@ -5,10 +5,10 @@ let state = loadedState || {
     fish: 0,
     market: 1.5,
     fisherman: 0,
-    boat: 0,
+    boat: 1,
     beach: 0,
     greyfish: 0,
-    bottle: 0,
+    bottle: 1,
     taxi: 0,
     rebirth: 0,
 }
@@ -33,7 +33,7 @@ let prices = {
 }
 
 let multipliers = {
-    market: 1.1,
+    market: 5,
     fisherman: 0.3,
     boat: 0.3,
     beach: 0.3,
@@ -58,7 +58,7 @@ fishing = () => {
         console.log("leidsin kala")
     }
 }
-a = setInterval(fishing, 100)
+a = setInterval(fishing, Math.max(10, 100 / state.boat));
 function sellFish() {
     state.money += (state.fish * state.market) + (state.greyfish * state.market * 12)
     state.fish = 0;
@@ -138,7 +138,9 @@ fishing1 = () => {
     }
 }
 
-b = setInterval(fishing1, 100)
+
+b = setInterval(fishing1, Math.max(10, 200 / (state.bottle)));
+
 function buyBottle() {
     let itemName = "bottle"
     let price = calculatePrice(itemName);
