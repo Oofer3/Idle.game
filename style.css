@@ -55,7 +55,7 @@ footer {
     margin-top: 20px;
 }
 
-button {
+button, .btn {
     background-color: #546E7A;
     color: #ffffff;
     border: none;
@@ -65,6 +65,6 @@ button {
     margin-top: 10px;
 }
 
-button:hover {
+button:hover, .btn:hover {
     background-color: #455A64;
 }
