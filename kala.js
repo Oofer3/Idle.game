@@ -3,7 +3,8 @@ let loadedState = JSON.parse(localStorage.getItem("state"))
 let state = loadedState || {
     money: 0,
     fish: 0,
-    market: 1.5,
+    market: 1,
+    marketLimit: 1,
     fisherman: 0,
     boat: 1,
     beach: 0,
@@ -24,7 +25,7 @@ setInterval(() => {
 }, 5000);
 
 let prices = {
-    market: 222,
+    market: 1,
     fisherman: 10,
     boat: 800,
     beach: 9998,
@@ -33,13 +34,15 @@ let prices = {
 }
 
 let multipliers = {
-    market: 5,
+    market: 1,
     fisherman: 0.3,
     boat: 0.3,
     beach: 0.3,
     bottle: 0.3,
     taxi: 0.3,
 }
+
+let marketLimitDom = document.querySelector("#state-marketLimit");
 
 function calculatePrice(itemName) {
     return prices[itemName] + prices[itemName] * multipliers[itemName] * state[itemName];
@@ -60,23 +63,29 @@ fishing = () => {
 }
 a = setInterval(fishing, Math.max(10, 100 / state.boat));
 function sellFish() {
-    state.money += (state.fish * state.market) + (state.greyfish * state.market * 12)
+    state.money += (state.fish * state.market/2) + (state.greyfish * state.market/2 * 12)
     state.fish = 0;
     state.greyfish = 0;
     fishDisplay.textContent = state.fish;
 }
 
 function buyMarket() {
-    // TODO näita kuidas need kaks rida teha funktsiooniks
     let itemName = "market";
-    let price = calculatePrice(itemName);
+    let price = prices[itemName] * state[itemName];
     if (state.money >= price) {
+        if (state.market >= marketLimitDom.value)
+            return;
+
         state.market++;
-        state.market = state.market * 1.2;
         state.money -= price;
-        console.log("Sa arendasid enda turgu:", state.market);
-        let marketDisplay = document.querySelector("#market");
-        marketDisplay.textContent = state.market;
+
+        if (Math.random() < 0.5) {
+            state.market = 1;
+            console.log("Turul oli kriis, kõik su turundusstrateegiad on mõttetud, pead alustama otsast peale.");
+        } else {
+            console.log("Sa arendasid enda turgu:", state.market);
+        }
+        updateDisplay()
     } else {
         alert("sul on vaja " + price + " münti");
     }

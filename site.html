@@ -38,7 +38,8 @@
             <div class="card" id="market-card" style="background-color: transparent;">
                 <h2>Market: <span id="state-market">1.3</span> 🏪</h2>
                 <h2>Market Price <span id="price-market">200</span> 💰</h2>
-                <button onclick="buyMarket()">Buy Market Upgrade 🏪</button>
+                <button onclick="buyMarket()">Buy Market Upgrade 🏪<br/>(50% chance to reset to 1)</button>
+                <input class="btn" type="number" id="state-marketLimit" value="5" min="1" max="100" title="Auto-clicker safety helper, disables buy button when reaches market limit">
             </div>
             <div class="card" id="boat-card" style="background-color: transparent;">
                 <h2>Boats: <span id="state-boat">0</span>/10</h2>
